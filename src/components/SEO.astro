@@ -1,0 +1,34 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = site.name,
+  description = site.description,
+  image,
+  noindex = false,
+} = Astro.props;
+const canonicalUrl = site.url ? new URL(Astro.url.pathname, site.url).href : undefined;
+const socialImage = image ? (site.url ? new URL(image, site.url).href : image) : undefined;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+{socialImage && <meta property="og:image" content={socialImage} />}
+<meta name="twitter:card" content={socialImage ? "summary_large_image" : "summary"} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{socialImage && <meta name="twitter:image" content={socialImage} />}

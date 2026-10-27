@@ -1,0 +1,36 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SEO from "../components/SEO.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image, noindex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#f5f5f4" />
+    <SEO title={title} description={description} image={image} noindex={noindex} />
+    <ClientRouter />
+  </head>
+  <body class="min-h-screen bg-stone-50 text-stone-950 antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
+  </body>
+</html>
