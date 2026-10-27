@@ -1,0 +1,67 @@
+---
+import { faq } from "../data/faq";
+import { customOptions, customOrderSteps } from "../data/custom-options";
+import ProcessSteps from "../components/ProcessSteps.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Custom Orders | KING CRAFT ARTS"
+  description="Learn how custom bag enquiries work with KING CRAFT ARTS."
+>
+  <section class="shell py-16 sm:py-24">
+    <p class="eyebrow">Custom orders</p>
+    <h1 class="mt-4 max-w-3xl font-display text-5xl font-medium tracking-tight sm:text-7xl">
+      Begin with a conversation.
+    </h1>
+    <p class="mt-8 max-w-2xl text-lg leading-8 text-stone-700">
+      Custom enquiries begin with a discussion about the bag style and what you are looking for. Customisation depends on the selected style and the options confirmed during the enquiry.
+    </p>
+  </section>
+
+  <section class="border-y border-stone-200 bg-stone-100" aria-labelledby="process-title">
+    <div class="shell py-16 sm:py-24">
+      <p class="eyebrow">The process</p>
+      <h2 id="process-title" class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">
+        Five steps from idea to arrangement.
+      </h2>
+      <div class="mt-12">
+        <ProcessSteps steps={customOrderSteps} />
+      </div>
+    </div>
+  </section>
+
+  <section class="shell grid gap-10 py-16 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24" aria-labelledby="terms-title">
+    <div>
+      <p class="eyebrow">Before you proceed</p>
+      <h2 id="terms-title" class="mt-4 font-display text-4xl font-medium tracking-tight">Confirm the details first.</h2>
+    </div>
+    <div class="max-w-2xl text-lg leading-8 text-stone-700">
+      <p>
+        Before proceeding, please confirm the price, timeline and order terms for your enquiry. Delivery or collection arrangements are agreed directly as part of the order discussion.
+      </p>
+      <p class="mt-6">
+        Materials, colours, dimensions and design options are not assumed to be available for every style. They should only be treated as confirmed when discussed directly.
+      </p>
+      <p class="mt-6 text-base leading-7 text-stone-600">{customOptions.notes}</p>
+    </div>
+  </section>
+
+  <section class="border-t border-stone-200" aria-labelledby="faq-title">
+    <div class="shell py-16 sm:py-24">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq-title" class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">Before ordering</h2>
+      <div class="mt-10 max-w-3xl divide-y divide-stone-200 border-y border-stone-200">
+        {faq.map((item) => (
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-left font-semibold marker:hidden">
+              {item.question}
+              <span aria-hidden="true" class="text-xl font-normal text-amber-700 transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 max-w-2xl pr-8 leading-7 text-stone-600">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -4,6 +4,8 @@ import { site } from "../data/site";
 const navigation = [
   { href: "/", label: "Home" },
   { href: "/gallery/", label: "Gallery" },
+  { href: "/artist/", label: "Artist" },
+  { href: "/custom/", label: "Custom Orders" },
   { href: "/contact/", label: "Contact" },
 ];
 const currentPath = Astro.url.pathname;
@@ -54,6 +56,8 @@ const currentPath = Astro.url.pathname;
 
 <script>
   const setupMenu = () => {
+    cleanupMenu?.();
+
     const menuButton = document.querySelector<HTMLButtonElement>(".menu-button");
     const navigation = document.querySelector<HTMLElement>("#site-navigation");
     const menuLabel = document.querySelector<HTMLElement>(".menu-label");
@@ -71,24 +75,35 @@ const currentPath = Astro.url.pathname;
       menuIcon.textContent = isOpen ? "×" : "+";
     };
 
-    menuButton.addEventListener("click", () => {
+    const handleMenuClick = () => {
       setMenuState(menuButton.getAttribute("aria-expanded") !== "true");
-    });
+    };
 
-    navigation.addEventListener("click", (event) => {
+    const handleNavigationClick = (event: MouseEvent) => {
       if ((event.target as HTMLElement).closest("a")) {
         setMenuState(false);
       }
-    });
+    };
 
-    document.addEventListener("keydown", (event) => {
+    const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
         setMenuState(false);
         menuButton.focus();
       }
-    });
+    };
+
+    menuButton.addEventListener("click", handleMenuClick);
+    navigation.addEventListener("click", handleNavigationClick);
+    document.addEventListener("keydown", handleKeydown);
+
+    cleanupMenu = () => {
+      menuButton.removeEventListener("click", handleMenuClick);
+      navigation.removeEventListener("click", handleNavigationClick);
+      document.removeEventListener("keydown", handleKeydown);
+    };
   };
 
+  let cleanupMenu: (() => void) | undefined;
   setupMenu();
   document.addEventListener("astro:page-load", setupMenu);
 </script>

@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+---
+
+<Layout
+  title="The Artist | KING CRAFT ARTS"
+  description="Meet Ronald Takunda Chaparadza, the artist behind KING CRAFT ARTS."
+>
+  <section class="shell py-16 sm:py-24">
+    <p class="eyebrow">The artist</p>
+    <h1 class="mt-4 max-w-3xl font-display text-5xl font-medium tracking-tight sm:text-7xl">
+      Ronald Takunda Chaparadza
+    </h1>
+    <div class="mt-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+      <div class="flex aspect-[4/3] items-center justify-center rounded-2xl bg-stone-200 px-8 text-center">
+        <p class="text-sm font-medium uppercase tracking-[0.16em] text-stone-600">
+          Artist photograph pending confirmation
+        </p>
+      </div>
+      <div class="max-w-2xl text-lg leading-8 text-stone-700">
+        <p>
+          {site.artist} began making bags to express his art through his hands.
+        </p>
+        <p class="mt-6">
+          KING CRAFT ARTS is his brand, presented here as a portfolio and a place to begin a direct custom enquiry.
+        </p>
+        <p class="mt-6 text-base leading-7 text-stone-600">
+          The public artist location is {site.location}, pending final business-contact reconciliation.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
