@@ -5,7 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import { getBagWhatsAppMessage, getMadeToOrderWhatsAppMessage, getWhatsAppUrl } from "../../data/site";
 
 export async function getStaticPaths() {
-  const bags = await getCollection("bags");
+  const bags = (await getCollection("bags")).filter((bag) => bag.data.publicationStatus === "published");
 
   return bags.map((bag) => ({
     params: { slug: bag.id },
@@ -22,6 +22,12 @@ const { data } = bag;
 const { Content } = await render(bag);
 const whatsappUrl = getWhatsAppUrl(getBagWhatsAppMessage(data.title));
 const madeToOrderWhatsAppUrl = getWhatsAppUrl(getMadeToOrderWhatsAppMessage(data.title));
+const availabilityLabel =
+  data.availability === "unconfirmed"
+    ? "Availability to be confirmed"
+    : data.availability === "available"
+      ? "Available"
+      : "Currently unavailable";
 const formatPrice = (price: number) =>
   new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 }).format(price);
 ---
@@ -52,7 +58,8 @@ const formatPrice = (price: number) =>
               class="h-full w-full object-cover"
             />
           ) : (
-            <div class="flex h-full items-center justify-center px-6 text-center">
+            <div class="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
+              <span class="font-display text-5xl text-stone-400" aria-hidden="true">KCA</span>
               <p class="text-sm font-medium uppercase tracking-[0.16em] text-stone-600">Product image pending</p>
             </div>
           )
@@ -63,6 +70,7 @@ const formatPrice = (price: number) =>
         <p class="eyebrow">{data.category.replaceAll("-", " ")}</p>
         <h1 class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">{data.title}</h1>
         <p class="mt-6 text-lg leading-8 text-stone-700">{data.description}</p>
+        <p class="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">{availabilityLabel}</p>
 
         <dl class="mt-8 grid gap-4 border-y border-stone-200 py-6">
           <div class="flex items-baseline justify-between gap-6">
@@ -97,7 +105,11 @@ const formatPrice = (price: number) =>
           )
         }
 
-        {data.imageStatus === "pending" && <p class="mt-8 text-sm text-stone-600">Product photography pending confirmation.</p>}
+        {
+          data.imageStatus === "pending" && (
+            <p class="mt-8 text-sm text-stone-600">Product photography pending confirmation.</p>
+          )
+        }
 
         {
           whatsappUrl && (

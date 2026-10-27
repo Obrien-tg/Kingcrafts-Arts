@@ -1,6 +1,6 @@
 ---
 title: "Picnic Bag — Medium"
-description: "A KING CRAFT ARTS bag style available for custom inquiry. Product details will be confirmed with the artist."
+description: "The medium Picnic Bag catalogue style from KING CRAFT ARTS, available for custom enquiry. Product details will be confirmed with the artist."
 category: "picnic-bag"
 availability: "unconfirmed"
 imageStatus: "pending"

@@ -3,9 +3,11 @@ import { getCollection } from "astro:content";
 import BagCard from "../../components/BagCard.astro";
 import Layout from "../../layouts/Layout.astro";
 
-const bags = (await getCollection("bags")).sort(
+const bags = (await getCollection("bags"))
+  .filter((bag) => bag.data.publicationStatus === "published")
+  .sort(
   (a, b) => Number(b.data.featured) - Number(a.data.featured) || a.id.localeCompare(b.id),
-);
+  );
 ---
 
 <Layout
