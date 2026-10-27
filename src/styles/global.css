@@ -66,6 +66,16 @@
   .prose-copy p + p {
     margin-top: 1rem;
   }
+
+  .hero-shell {
+    background:
+      radial-gradient(circle at 82% 28%, rgb(245 158 11 / 0.1), transparent 22rem),
+      #f5f5f4;
+  }
+
+  .hero-mark {
+    transform: rotate(4deg);
+  }
 }
 
 @media (max-width: 639px) {
