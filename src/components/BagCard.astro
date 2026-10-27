@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import { getWhatsAppUrl } from "../data/site";
+import { getBagWhatsAppMessage, getWhatsAppUrl } from "../data/site";
 
 interface Props {
   bag: CollectionEntry<"bags">;
@@ -10,9 +10,7 @@ interface Props {
 
 const { bag, priority = false } = Astro.props;
 const { data } = bag;
-const whatsappUrl = getWhatsAppUrl(
-  `Hi KING CRAFT ARTS, I’m interested in the ${data.title}. Could you please confirm its current availability, price and any made-to-order options?`,
-);
+const whatsappUrl = getWhatsAppUrl(getBagWhatsAppMessage(data.title));
 const imageAlt = data.imageAlt || `${data.title} product image`;
 const detailUrl = `/gallery/${bag.id}/`;
 const formatPrice = (price: number) =>

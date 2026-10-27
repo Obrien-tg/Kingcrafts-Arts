@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { getWhatsAppUrl } from "../../data/site";
+import { getBagWhatsAppMessage, getMadeToOrderWhatsAppMessage, getWhatsAppUrl } from "../../data/site";
 
 export async function getStaticPaths() {
   const bags = await getCollection("bags");
@@ -20,9 +20,8 @@ interface Props {
 const { bag } = Astro.props;
 const { data } = bag;
 const { Content } = await render(bag);
-const whatsappUrl = getWhatsAppUrl(
-  `Hi KING CRAFT ARTS, I’m interested in the ${data.title}. Could you please confirm its current availability, price and any made-to-order options?`,
-);
+const whatsappUrl = getWhatsAppUrl(getBagWhatsAppMessage(data.title));
+const madeToOrderWhatsAppUrl = getWhatsAppUrl(getMadeToOrderWhatsAppMessage(data.title));
 const formatPrice = (price: number) =>
   new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 }).format(price);
 ---
@@ -109,6 +108,18 @@ const formatPrice = (price: number) =>
               class="mt-8 inline-flex min-h-12 items-center rounded-full bg-stone-950 px-6 text-sm font-semibold text-stone-50 hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
             >
               Enquire on WhatsApp
+            </a>
+          )
+        }
+        {
+          madeToOrderWhatsAppUrl && (
+            <a
+              href={madeToOrderWhatsAppUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="mt-4 inline-flex min-h-12 items-center rounded-full border border-stone-300 px-6 text-sm font-semibold text-stone-800 hover:border-stone-950 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+            >
+              Ask about made-to-order
             </a>
           )
         }

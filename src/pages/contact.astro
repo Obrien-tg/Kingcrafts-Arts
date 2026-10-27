@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import InquiryForm from "../components/InquiryForm.astro";
+import Layout from "../layouts/Layout.astro";
+
+const bags = (await getCollection("bags"))
+  .filter((bag) => bag.data.publicationStatus === "published")
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Layout
+  title="Contact | KING CRAFT ARTS"
+  description="Start a custom bag enquiry with KING CRAFT ARTS and Ronald Takunda Chaparadza."
+>
+  <section class="shell py-16 sm:py-24">
+    <p class="eyebrow">Start a conversation</p>
+    <h1 class="mt-4 max-w-3xl font-display text-4xl font-medium tracking-tight sm:text-6xl">Tell us what you are looking for.</h1>
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
+      Share a little about your enquiry and the team will be able to respond once the receiving contact channel is confirmed.
+    </p>
+    <div class="mt-10 max-w-2xl">
+      <InquiryForm bags={bags} />
+    </div>
+  </section>
+</Layout>

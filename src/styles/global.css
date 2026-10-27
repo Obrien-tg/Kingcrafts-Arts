@@ -67,6 +67,26 @@
     margin-top: 1rem;
   }
 
+  .form-control {
+    min-height: 3rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 0.75rem;
+    background: #fafaf9;
+    padding: 0.75rem 0.875rem;
+    color: #1c1917;
+  }
+
+  .form-control:focus {
+    border-color: #b45309;
+    outline: 2px solid #b45309;
+    outline-offset: 2px;
+  }
+
+  textarea.form-control {
+    min-height: 9rem;
+    resize: vertical;
+  }
+
   .hero-shell {
     background:
       radial-gradient(circle at 82% 28%, rgb(245 158 11 / 0.1), transparent 22rem),
