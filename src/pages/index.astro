@@ -16,20 +16,20 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
   title="KING CRAFT ARTS | Handcrafted bags by Ronald Takunda Chaparadza"
   description="Discover the handcrafted bag collection of Ronald Takunda Chaparadza, based in Steelpoort, South Africa."
 >
-  <section class="hero-shell overflow-hidden border-b border-stone-200">
+  <section class="hero-shell overflow-hidden border-b border-earth/20">
     <div class="shell grid min-h-[calc(100svh-4rem)] items-center gap-12 py-16 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
       <div class="relative z-10">
         <p class="eyebrow">Handmade in {site.location}</p>
-        <h1 class="mt-6 max-w-3xl font-display text-5xl font-medium leading-[0.98] tracking-[-0.04em] text-stone-950 sm:text-7xl lg:text-8xl">
+        <h1 class="mt-6 max-w-3xl font-display text-5xl font-medium leading-[0.98] tracking-[-0.04em] text-ink sm:text-7xl lg:text-8xl">
           Art, expressed through the hands.
         </h1>
-        <p class="mt-8 max-w-xl text-lg leading-8 text-stone-700 sm:text-xl">
+        <p class="mt-8 max-w-xl text-lg leading-8 text-ink/75 sm:text-xl">
           KING CRAFT ARTS is the handcrafted bag practice of {site.artist}. Explore the collection and begin a personal enquiry.
         </p>
         <div class="mt-10 flex flex-wrap items-center gap-4">
           <a
             href="/gallery/"
-            class="inline-flex min-h-12 items-center rounded-full bg-stone-950 px-6 text-sm font-semibold text-stone-50 transition-colors hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+            class="inline-flex min-h-12 items-center rounded-full bg-earth px-6 text-sm font-semibold text-cream transition-colors hover:bg-ochre focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
           >
             Explore the Collection
           </a>
@@ -39,7 +39,7 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                class="inline-flex min-h-12 items-center rounded-full border border-stone-300 px-6 text-sm font-semibold text-stone-800 transition-colors hover:border-stone-950 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+                class="inline-flex min-h-12 items-center rounded-full border border-earth/40 px-6 text-sm font-semibold text-earth transition-colors hover:border-ochre hover:bg-earth/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
                 Enquire on WhatsApp
               </a>
@@ -49,14 +49,14 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
       </div>
 
       <div class="hero-mark relative mx-auto aspect-square w-full max-w-[28rem]" aria-hidden="true">
-        <div class="absolute inset-[8%] rounded-[48%_52%_45%_55%/52%_45%_55%_48%] border border-stone-300"></div>
+        <div class="absolute inset-[8%] rounded-[48%_52%_45%_55%/52%_45%_55%_48%] border border-earth/30"></div>
         <div class="absolute inset-[18%] rounded-[55%_45%_52%_48%/45%_55%_45%_55%] bg-cream"></div>
-        <div class="absolute inset-[29%] rounded-[42%_58%_58%_42%/58%_42%_58%_42%] border-2 border-stone-900"></div>
-        <p class="absolute inset-0 flex items-center justify-center px-16 text-center font-display text-3xl leading-tight text-stone-950 sm:text-4xl">
+        <div class="absolute inset-[29%] rounded-[42%_58%_58%_42%/58%_42%_58%_42%] border-2 border-earth"></div>
+        <p class="absolute inset-0 flex items-center justify-center px-16 text-center font-display text-3xl leading-tight text-ink sm:text-4xl">
           KING<br />CRAFT<br />ARTS
         </p>
-        <span class="absolute bottom-[10%] left-[12%] text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-stone-600">Steelpoort</span>
-        <span class="absolute right-[8%] top-[14%] text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-stone-600 [writing-mode:vertical-rl]">Made by hand</span>
+        <span class="absolute bottom-[10%] left-[12%] text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-earth">Steelpoort</span>
+        <span class="absolute right-[8%] top-[14%] text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold [writing-mode:vertical-rl]">Made by hand</span>
       </div>
     </div>
   </section>
@@ -69,7 +69,7 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
       </div>
       <a
         href="/gallery/"
-        class="w-fit rounded-full text-sm font-semibold text-stone-700 underline decoration-stone-300 underline-offset-4 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+        class="w-fit rounded-full text-sm font-semibold text-earth underline decoration-gold/60 underline-offset-4 hover:text-ochre focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
       >
         View the full collection
       </a>
@@ -81,15 +81,15 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
           {selectedBags.map((bag, index) => <BagCard bag={bag} priority={index === 0} />)}
         </div>
       ) : (
-        <div class="mt-10 rounded-2xl border border-dashed border-stone-300 bg-stone-100 px-6 py-12 text-center">
+        <div class="mt-10 rounded-2xl border border-dashed border-earth/30 bg-earth/5 px-6 py-12 text-center">
           <p class="font-display text-2xl">The collection is being prepared.</p>
-          <p class="mx-auto mt-3 max-w-md text-stone-600">Confirmed bag styles will appear here as details are ready.</p>
+          <p class="mx-auto mt-3 max-w-md text-ink/70">Confirmed bag styles will appear here as details are ready.</p>
         </div>
       )
     }
   </section>
 
-  <section class="border-y border-stone-200 bg-stone-100" aria-labelledby="artist-title">
+  <section class="border-y border-earth/15 bg-earth/5" aria-labelledby="artist-title">
     <div class="shell grid gap-10 py-20 sm:py-28 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
       <div>
         <p class="eyebrow">The artist</p>
@@ -97,10 +97,10 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
       </div>
       <div>
         <h2 id="artist-title" class="sr-only">About the artist</h2>
-        <p class="max-w-2xl text-2xl leading-tight text-stone-900 sm:text-4xl">
+        <p class="max-w-2xl text-2xl leading-tight text-ink sm:text-4xl">
           {site.artist} began making bags to express his art through his hands.
         </p>
-        <p class="mt-6 max-w-xl leading-7 text-stone-600">
+        <p class="mt-6 max-w-xl leading-7 text-ink/70">
           KING CRAFT ARTS is his brand: a place to discover the bag styles and start a direct conversation about an enquiry.
         </p>
       </div>
@@ -112,43 +112,43 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
       <p class="eyebrow">How to enquire</p>
       <h2 id="process-title" class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">Choose a style. Start a conversation.</h2>
     </div>
-    <ol class="mt-12 grid gap-8 border-t border-stone-200 pt-8 md:grid-cols-3 md:gap-10">
+    <ol class="mt-12 grid gap-8 border-t border-earth/20 pt-8 md:grid-cols-3 md:gap-10">
       <li>
         <span class="font-display text-3xl text-earth">01</span>
         <h3 class="mt-4 text-lg font-semibold">Explore</h3>
-        <p class="mt-2 leading-7 text-stone-600">Browse the collection and find a bag style that speaks to you.</p>
+        <p class="mt-2 leading-7 text-ink/70">Browse the collection and find a bag style that speaks to you.</p>
       </li>
       <li>
         <span class="font-display text-3xl text-earth">02</span>
         <h3 class="mt-4 text-lg font-semibold">Enquire</h3>
-        <p class="mt-2 leading-7 text-stone-600">Send an enquiry about its current availability and the two listed order prices.</p>
+        <p class="mt-2 leading-7 text-ink/70">Send an enquiry about its current availability and the two listed order prices.</p>
       </li>
       <li>
         <span class="font-display text-3xl text-earth">03</span>
         <h3 class="mt-4 text-lg font-semibold">Confirm</h3>
-        <p class="mt-2 leading-7 text-stone-600">Discuss the details directly with the artist before placing an order.</p>
+        <p class="mt-2 leading-7 text-ink/70">Discuss the details directly with the artist before placing an order.</p>
       </li>
     </ol>
   </section>
 
-  <section class="border-t border-stone-200" aria-labelledby="trust-title">
+  <section class="border-t border-earth/20" aria-labelledby="trust-title">
     <div class="shell grid gap-10 py-16 sm:grid-cols-3 sm:gap-8 sm:py-20">
       <h2 id="trust-title" class="font-display text-3xl font-medium tracking-tight">What you can expect</h2>
       <div>
         <p class="font-semibold">A direct enquiry</p>
-        <p class="mt-2 text-sm leading-6 text-stone-600">Speak about a bag style through the official contact channel once verified.</p>
+        <p class="mt-2 text-sm leading-6 text-ink/70">Speak about a bag style through the official contact channel once verified.</p>
       </div>
       <div>
         <p class="font-semibold">Clear pricing</p>
-        <p class="mt-2 text-sm leading-6 text-stone-600">Standard Price and Made-to-Order Price are shown separately for each style.</p>
+        <p class="mt-2 text-sm leading-6 text-ink/70">Standard Price and Made-to-Order Price are shown separately for each style.</p>
       </div>
     </div>
   </section>
 
-  <section class="bg-stone-950 text-stone-50" aria-labelledby="final-cta-title">
+  <section class="bg-ink text-cream" aria-labelledby="final-cta-title">
     <div class="shell flex flex-col gap-8 py-20 sm:flex-row sm:items-center sm:justify-between sm:py-24">
       <div>
-        <p class="eyebrow text-stone-400">Begin your enquiry</p>
+        <p class="eyebrow text-gold">Begin your enquiry</p>
         <h2 id="final-cta-title" class="mt-4 max-w-xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
           Find the bag that feels like yours.
         </h2>
@@ -159,7 +159,7 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            class="inline-flex min-h-12 w-fit items-center rounded-full bg-cream px-6 text-sm font-semibold text-ink hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream"
+            class="inline-flex min-h-12 w-fit items-center rounded-full bg-cream px-6 text-sm font-semibold text-earth transition-colors hover:bg-gold/15 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
           >
             Enquire on WhatsApp
           </a>

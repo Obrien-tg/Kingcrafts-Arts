@@ -26,7 +26,8 @@
   }
 
   ::selection {
-    background: #d6d3d1;
+    background: color-mix(in srgb, var(--color-gold) 28%, var(--color-cream));
+    color: var(--color-ink);
   }
 }
 
@@ -37,7 +38,7 @@
   }
 
   .eyebrow {
-    color: #78716c;
+    color: var(--color-earth);
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -48,9 +49,9 @@
   .mobile-navigation {
     position: absolute;
     inset: 4rem 1.5rem auto;
-    border: 1px solid #e7e5e4;
+    border: 1px solid color-mix(in srgb, var(--color-earth) 20%, var(--color-cream));
     border-radius: 1rem;
-    background: #fafaf9;
+    background: var(--color-cream);
     padding: 0.75rem;
     box-shadow: 0 1rem 2rem rgb(28 25 23 / 0.08);
   }
@@ -66,7 +67,7 @@
   }
 
   .prose-copy {
-    color: #57534e;
+    color: color-mix(in srgb, var(--color-ink) 72%, var(--color-cream));
     line-height: 1.75;
   }
 
@@ -76,16 +77,16 @@
 
   .form-control {
     min-height: 3rem;
-    border: 1px solid #d6d3d1;
+    border: 1px solid color-mix(in srgb, var(--color-earth) 24%, var(--color-cream));
     border-radius: 0.75rem;
-    background: #fafaf9;
+    background: var(--color-cream);
     padding: 0.75rem 0.875rem;
-    color: #1c1917;
+    color: var(--color-ink);
   }
 
   .form-control:focus {
-    border-color: #b45309;
-    outline: 2px solid #b45309;
+    border-color: var(--color-gold);
+    outline: 2px solid var(--color-gold);
     outline-offset: 2px;
   }
 

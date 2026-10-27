@@ -23,13 +23,13 @@ const formatPrice = (price: number) =>
   new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 }).format(price);
 ---
 
-<article class="flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+<article class="flex h-full flex-col overflow-hidden rounded-2xl border border-earth/15 bg-white shadow-sm">
   <a
     href={detailUrl}
-    class="group block focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-amber-700"
+    class="group block focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-gold"
     aria-label={`View ${data.title} details`}
   >
-    <div class="aspect-[4/3] overflow-hidden bg-stone-200">
+    <div class="aspect-[4/3] overflow-hidden bg-earth/10">
       {
         data.image ? (
           <Image
@@ -43,8 +43,8 @@ const formatPrice = (price: number) =>
           />
         ) : (
           <div class="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
-            <span class="font-display text-4xl text-stone-400" aria-hidden="true">KCA</span>
-            <p class="text-sm font-medium uppercase tracking-[0.16em] text-stone-600">Product image pending</p>
+            <span class="font-display text-4xl text-earth/50" aria-hidden="true">KCA</span>
+            <p class="text-sm font-medium uppercase tracking-[0.16em] text-earth">Product image pending</p>
           </div>
         )
       }
@@ -54,28 +54,28 @@ const formatPrice = (price: number) =>
   <div class="flex flex-1 flex-col p-5 sm:p-6">
     <p class="eyebrow">{data.category.replaceAll("-", " ")}</p>
     <h2 class="mt-2 font-display text-2xl font-medium tracking-tight">
-      <a href={detailUrl} class="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+      <a href={detailUrl} class="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
         {data.title}
       </a>
     </h2>
-    <p class="mt-3 text-sm leading-6 text-stone-600">{data.description}</p>
-    <p class="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">{availabilityLabel}</p>
+    <p class="mt-3 text-sm leading-6 text-ink/70">{data.description}</p>
+    <p class="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-forest">{availabilityLabel}</p>
 
-    <dl class="mt-6 grid gap-3 border-y border-stone-200 py-4 text-sm">
+    <dl class="mt-6 grid gap-3 border-y border-earth/15 py-4 text-sm">
       <div class="flex items-baseline justify-between gap-4">
-        <dt class="text-stone-600">Standard Price</dt>
-        <dd class="font-semibold text-stone-950">{formatPrice(data.standardPrice)}</dd>
+        <dt class="text-ink/70">Standard Price</dt>
+        <dd class="font-semibold text-ink">{formatPrice(data.standardPrice)}</dd>
       </div>
       <div class="flex items-baseline justify-between gap-4">
-        <dt class="text-stone-600">Made-to-Order Price</dt>
-        <dd class="font-semibold text-stone-950">{formatPrice(data.madeToOrderPrice)}</dd>
+        <dt class="text-ink/70">Made-to-Order Price</dt>
+        <dd class="font-semibold text-ink">{formatPrice(data.madeToOrderPrice)}</dd>
       </div>
     </dl>
 
     <div class="mt-auto flex flex-wrap items-center gap-4 pt-5">
       <a
         href={detailUrl}
-        class="rounded-full bg-stone-950 px-4 py-2.5 text-sm font-semibold text-stone-50 transition-colors hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+        class="rounded-full bg-earth px-4 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-ochre focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
       >
         View details
       </a>
@@ -85,7 +85,7 @@ const formatPrice = (price: number) =>
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            class="rounded-full px-1 py-2.5 text-sm font-semibold text-stone-700 underline decoration-stone-300 underline-offset-4 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+            class="rounded-full px-1 py-2.5 text-sm font-semibold text-earth underline decoration-gold/60 underline-offset-4 hover:text-ochre focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
           >
             Enquire on WhatsApp
           </a>

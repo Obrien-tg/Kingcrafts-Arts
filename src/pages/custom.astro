@@ -14,12 +14,12 @@ import Layout from "../layouts/Layout.astro";
     <h1 class="mt-4 max-w-3xl font-display text-5xl font-medium tracking-tight sm:text-7xl">
       Begin with a conversation.
     </h1>
-    <p class="mt-8 max-w-2xl text-lg leading-8 text-stone-700">
+    <p class="mt-8 max-w-2xl text-lg leading-8 text-ink/75">
       Custom enquiries begin with a discussion about the bag style and what you are looking for. Customisation depends on the selected style and the options confirmed during the enquiry.
     </p>
   </section>
 
-  <section class="border-y border-stone-200 bg-stone-100" aria-labelledby="process-title">
+  <section class="border-y border-earth/15 bg-earth/5" aria-labelledby="process-title">
     <div class="shell py-16 sm:py-24">
       <p class="eyebrow">The process</p>
       <h2 id="process-title" class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">
@@ -36,29 +36,29 @@ import Layout from "../layouts/Layout.astro";
       <p class="eyebrow">Before you proceed</p>
       <h2 id="terms-title" class="mt-4 font-display text-4xl font-medium tracking-tight">Confirm the details first.</h2>
     </div>
-    <div class="max-w-2xl text-lg leading-8 text-stone-700">
+    <div class="max-w-2xl text-lg leading-8 text-ink/75">
       <p>
         Before proceeding, please confirm the price, timeline and order terms for your enquiry. Delivery or collection arrangements are agreed directly as part of the order discussion.
       </p>
       <p class="mt-6">
         Materials, colours, dimensions and design options are not assumed to be available for every style. They should only be treated as confirmed when discussed directly.
       </p>
-      <p class="mt-6 text-base leading-7 text-stone-600">{customOptions.notes}</p>
+      <p class="mt-6 text-base leading-7 text-ink/65">{customOptions.notes}</p>
     </div>
   </section>
 
-  <section class="border-t border-stone-200" aria-labelledby="faq-title">
+  <section class="border-t border-earth/20" aria-labelledby="faq-title">
     <div class="shell py-16 sm:py-24">
       <p class="eyebrow">Questions</p>
       <h2 id="faq-title" class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">Before ordering</h2>
-      <div class="mt-10 max-w-3xl divide-y divide-stone-200 border-y border-stone-200">
+      <div class="mt-10 max-w-3xl divide-y divide-earth/15 border-y border-earth/15">
         {faq.map((item) => (
           <details class="group py-5">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-left font-semibold marker:hidden">
               {item.question}
               <span aria-hidden="true" class="text-xl font-normal text-earth transition-transform group-open:rotate-45">+</span>
             </summary>
-            <p class="mt-3 max-w-2xl pr-8 leading-7 text-stone-600">{item.answer}</p>
+            <p class="mt-3 max-w-2xl pr-8 leading-7 text-ink/70">{item.answer}</p>
           </details>
         ))}
       </div>

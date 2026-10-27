@@ -11,13 +11,13 @@ interface Props {
 const { steps } = Astro.props;
 ---
 
-<ol class="grid gap-8 border-t border-stone-200 pt-8 md:grid-cols-5 md:gap-6">
+<ol class="grid gap-8 border-t border-earth/20 pt-8 md:grid-cols-5 md:gap-6">
   {
     steps.map((step, index) => (
       <li>
         <span class="font-display text-3xl text-earth">{String(index + 1).padStart(2, "0")}</span>
         <h3 class="mt-4 text-lg font-semibold">{step.title}</h3>
-        <p class="mt-2 leading-7 text-stone-600">{step.description}</p>
+        <p class="mt-2 leading-7 text-ink/70">{step.description}</p>
       </li>
     ))
   }
