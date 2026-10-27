@@ -8,16 +8,17 @@ interface Props {
 
 const { bags } = Astro.props;
 const endpoint = site.inquiryEndpoint;
-const isNetlify = site.inquiryProvider.toLowerCase() === "netlify";
-const formReady = Boolean(endpoint);
+const isNetlify = site.inquiryProvider.trim().toLowerCase() === "netlify";
+const formReady = isNetlify || Boolean(endpoint);
 ---
 
 <div class="rounded-2xl border border-earth/15 bg-white p-6 shadow-sm sm:p-8">
   {
     formReady ? (
       <form
-        action={endpoint}
+        action={isNetlify ? undefined : endpoint}
         method="POST"
+        name="king-craft-arts-inquiry"
         class="grid gap-6"
         data-netlify={isNetlify ? "true" : undefined}
         data-netlify-honeypot={isNetlify ? "bot-field" : undefined}

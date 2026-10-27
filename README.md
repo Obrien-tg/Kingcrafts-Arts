@@ -41,8 +41,7 @@ npm run preview    # Preview the built site locally
 
 ## Deployment
 
-No hosting provider is configured in this repository. Do not assume Netlify,
-Vercel, Render, or another provider until one is selected.
+The site is prepared for Netlify's static hosting and Netlify Forms.
 
 The provider-neutral deployment settings are:
 
@@ -59,7 +58,29 @@ contains working links to Home, Gallery, and Contact.
 
 Before deploying, configure the host's fallback behaviour so a missing URL
 serves `dist/404.html`. Do not add a provider-specific configuration file
-until the hosting provider is chosen.
+unless the hosting setup requires one.
+
+### Netlify Forms
+
+Set this environment variable in Netlify before deploying:
+
+```text
+PUBLIC_INQUIRY_PROVIDER=netlify
+```
+
+Leave `PUBLIC_INQUIRY_ENDPOINT` empty. In this mode, the contact form is
+rendered with Netlify's `data-netlify` attribute, a named form, a hidden
+`form-name` field, and a honeypot field. Netlify detects it during the build
+and exposes submissions in the site's Forms area after deployment.
+
+After the first successful deployment:
+
+1. Open the site in Netlify and confirm that `king-craft-arts-inquiry` appears
+   under **Forms**.
+2. Submit a real test enquiry from the deployed Contact page.
+3. Confirm the submission appears in **Forms > king-craft-arts-inquiry**.
+4. Configure email notifications in Netlify if notification delivery is
+   wanted. The repository does not hardcode a receiving email address.
 
 ## Environment variables
 
@@ -73,16 +94,17 @@ commit `.env` or real contact credentials.
 | `PUBLIC_WHATSAPP_PHONE_VERIFIED` | Only after owner confirmation | Must be `true` before any WhatsApp link is rendered. |
 | `PUBLIC_BUSINESS_EMAIL` | Only after owner confirmation | Reserved for a future confirmed business email; it is not currently published by the site. |
 | `PUBLIC_BUSINESS_EMAIL_VERIFIED` | Only after owner confirmation | Verification flag for the reserved email value. |
-| `PUBLIC_INQUIRY_ENDPOINT` | Required for a working form | Real form receiver URL. The form remains disconnected when empty. |
-| `PUBLIC_INQUIRY_PROVIDER` | With endpoint | Provider identifier, such as `netlify` only when Netlify Forms is actually configured. |
+| `PUBLIC_INQUIRY_ENDPOINT` | Only for non-Netlify providers | Real form receiver URL. Leave empty when using Netlify Forms. |
+| `PUBLIC_INQUIRY_PROVIDER` | For a working form | Set to `netlify` when deploying on Netlify Forms. The form remains disconnected for an empty or unsupported provider without an endpoint. |
 
 The supplied phone number and email remain unverified and are not stored in
 the repository or emitted by the default build. Do not set verification flags
 until the owner confirms the values.
 
 The contact form does not claim success without a configured receiving
-service. This repository does not currently contain a Netlify, Vercel, Render,
-or other host-specific form integration.
+service. Netlify Forms is considered configured only when
+`PUBLIC_INQUIRY_PROVIDER=netlify`; the Netlify dashboard still needs to be
+configured and verified after deployment.
 
 ## Content management
 
@@ -221,11 +243,12 @@ Then verify:
 
 ## Known pre-launch issues
 
-- No hosting provider has been selected or configured.
+- The site still needs to be deployed to Netlify and the form verified in the
+  Netlify Forms dashboard.
 - The WhatsApp number is unverified.
 - The supplied business email is unverified and not published.
-- No inquiry endpoint is configured, so the form is intentionally
-  disconnected.
+- `PUBLIC_INQUIRY_PROVIDER=netlify` must be set in Netlify before deployment
+  for the contact form to be active.
 - All eight catalogue entries currently need approved product photography.
 - Availability, materials, customisation options, lead times, delivery,
   payment, care, returns, exchanges, deposits, and other order policies remain
