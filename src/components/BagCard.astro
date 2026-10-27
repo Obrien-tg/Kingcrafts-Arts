@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getWhatsAppUrl } from "../data/site";
+
+interface Props {
+  bag: CollectionEntry<"bags">;
+  priority?: boolean;
+}
+
+const { bag, priority = false } = Astro.props;
+const { data } = bag;
+const whatsappUrl = getWhatsAppUrl(
+  `Hi KING CRAFT ARTS, I’m interested in the ${data.title}. Could you please confirm its current availability, price and any made-to-order options?`,
+);
+const imageAlt = data.imageAlt || `${data.title} product image`;
+const detailUrl = `/gallery/${bag.id}/`;
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 }).format(price);
+---
+
+<article class="flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+  <a
+    href={detailUrl}
+    class="group block focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-amber-700"
+    aria-label={`View ${data.title} details`}
+  >
+    <div class="aspect-[4/3] overflow-hidden bg-stone-200">
+      {
+        data.image ? (
+          <Image
+            src={data.image}
+            alt={imageAlt}
+            width={960}
+            height={720}
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div class="flex h-full items-center justify-center px-6 text-center">
+            <p class="text-sm font-medium uppercase tracking-[0.16em] text-stone-600">Product image pending</p>
+          </div>
+        )
+      }
+    </div>
+  </a>
+
+  <div class="flex flex-1 flex-col p-5 sm:p-6">
+    <p class="eyebrow">{data.category.replaceAll("-", " ")}</p>
+    <h2 class="mt-2 font-display text-2xl font-medium tracking-tight">
+      <a href={detailUrl} class="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+        {data.title}
+      </a>
+    </h2>
+    <p class="mt-3 text-sm leading-6 text-stone-600">{data.description}</p>
+
+    <dl class="mt-6 grid gap-3 border-y border-stone-200 py-4 text-sm">
+      <div class="flex items-baseline justify-between gap-4">
+        <dt class="text-stone-600">Standard Price</dt>
+        <dd class="font-semibold text-stone-950">{formatPrice(data.standardPrice)}</dd>
+      </div>
+      <div class="flex items-baseline justify-between gap-4">
+        <dt class="text-stone-600">Made-to-Order Price</dt>
+        <dd class="font-semibold text-stone-950">{formatPrice(data.madeToOrderPrice)}</dd>
+      </div>
+    </dl>
+
+    <div class="mt-auto flex flex-wrap items-center gap-4 pt-5">
+      <a
+        href={detailUrl}
+        class="rounded-full bg-stone-950 px-4 py-2.5 text-sm font-semibold text-stone-50 transition-colors hover:bg-stone-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+      >
+        View details
+      </a>
+      {
+        whatsappUrl && (
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="rounded-full px-1 py-2.5 text-sm font-semibold text-stone-700 underline decoration-stone-300 underline-offset-4 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700"
+          >
+            Enquire on WhatsApp
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

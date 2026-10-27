@@ -1,5 +1,11 @@
 ---
+import { getCollection } from "astro:content";
+import BagCard from "../../components/BagCard.astro";
 import Layout from "../../layouts/Layout.astro";
+
+const bags = (await getCollection("bags")).sort(
+  (a, b) => Number(b.data.featured) - Number(a.data.featured) || a.id.localeCompare(b.id),
+);
 ---
 
 <Layout
@@ -8,9 +14,27 @@ import Layout from "../../layouts/Layout.astro";
 >
   <section class="shell py-16 sm:py-24">
     <p class="eyebrow">The collection</p>
-    <h1 class="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-6xl">Gallery</h1>
+    <h1 class="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-6xl">The Collection</h1>
     <p class="mt-6 max-w-xl text-lg leading-8 text-stone-700">
-      Confirmed catalogue entries will be added in the next phase.
+      Explore bag styles by KING CRAFT ARTS, where Ronald Takunda Chaparadza expresses his art through his hands.
     </p>
+  </section>
+
+  <section class="shell pb-20 sm:pb-28" aria-labelledby="bag-grid-title">
+    <h2 id="bag-grid-title" class="sr-only">KING CRAFT ARTS bag styles</h2>
+    {
+      bags.length > 0 ? (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {bags.map((bag, index) => <BagCard bag={bag} priority={index === 0} />)}
+        </div>
+      ) : (
+        <div class="rounded-2xl border border-dashed border-stone-300 bg-stone-100 px-6 py-12 text-center">
+          <h2 class="font-display text-2xl">The collection is being prepared.</h2>
+          <p class="mx-auto mt-3 max-w-md text-stone-600">
+            Confirmed bag styles will appear here as product details and photography are ready.
+          </p>
+        </div>
+      )
+    }
   </section>
 </Layout>
