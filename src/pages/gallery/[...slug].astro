@@ -98,7 +98,7 @@ const formatPrice = (price: number) =>
           )
         }
 
-        {data.status === "image-pending" && <p class="mt-8 text-sm text-stone-600">Product photography pending confirmation.</p>}
+        {data.imageStatus === "pending" && <p class="mt-8 text-sm text-stone-600">Product photography pending confirmation.</p>}
 
         {
           whatsappUrl && (
