@@ -13,20 +13,55 @@ import { site } from "../data/site";
       Ronald Takunda Chaparadza
     </h1>
     <div class="mt-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-      <div class="flex aspect-[4/3] items-center justify-center rounded-2xl bg-stone-200 px-8 text-center">
-        <p class="text-sm font-medium uppercase tracking-[0.16em] text-stone-600">
-          Artist photograph pending confirmation
+      <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-earth/20 bg-earth/5 px-8 text-center">
+        <div class="absolute inset-[12%] rounded-[45%_55%_50%_50%/55%_45%_55%_45%] border border-earth/30" aria-hidden="true"></div>
+        <div class="absolute inset-[28%] rounded-full border-2 border-gold/70" aria-hidden="true"></div>
+        <p class="relative max-w-xs text-sm font-semibold uppercase tracking-[0.16em] text-earth">
+          Artist photograph to be added when confirmed
         </p>
       </div>
-      <div class="max-w-2xl text-lg leading-8 text-stone-700">
+      <div class="max-w-2xl text-lg leading-8 text-ink/75">
         <p>
-          {site.artist} began making bags to express his art through his hands.
+          {site.artist} makes bags as a way to express art through his hands. KING CRAFT ARTS is the space where that work can be seen, considered and discussed directly.
         </p>
         <p class="mt-6">
-          KING CRAFT ARTS is his brand, presented here as a portfolio and a place to begin a direct custom enquiry.
+          Each style is presented with the information currently confirmed for it. The collection is a starting point for finding a form that speaks to you, whether you are exploring an available piece or asking about a made-to-order option.
         </p>
-        <p class="mt-6 text-base leading-7 text-stone-600">
-          The public artist location is {site.location}, pending final business-contact reconciliation.
+        <p class="mt-6 text-base leading-7 text-ink/65">
+          The public artist location is {site.location}. Personal background and additional practice details will be added here when they are confirmed.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="/gallery/"
+            class="inline-flex min-h-12 items-center rounded-full bg-earth px-6 text-sm font-semibold text-cream transition-colors hover:bg-ochre focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          >
+            View the collection
+          </a>
+          <a
+            href="/custom/"
+            class="inline-flex min-h-12 items-center rounded-full border border-earth/40 px-6 text-sm font-semibold text-earth transition-colors hover:border-ochre hover:bg-earth/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          >
+            Explore custom orders
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-earth/15 bg-earth/5" aria-labelledby="practice-title">
+    <div class="shell grid gap-8 py-16 sm:py-20 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+      <div>
+        <p class="eyebrow">The practice</p>
+        <h2 id="practice-title" class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">
+          Made with intention.
+        </h2>
+      </div>
+      <div class="max-w-2xl text-lg leading-8 text-ink/75">
+        <p>
+          The work begins with the bag style and the conversation around it. Requests are treated as specific enquiries, so details are confirmed rather than assumed.
+        </p>
+        <p class="mt-6">
+          Browse the gallery to see the current styles, then get in touch when you are ready to ask about availability, pricing or a custom direction.
         </p>
       </div>
     </div>

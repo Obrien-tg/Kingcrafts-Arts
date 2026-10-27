@@ -23,7 +23,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="shell py-16 sm:py-24">
       <p class="eyebrow">The process</p>
       <h2 id="process-title" class="mt-4 font-display text-4xl font-medium tracking-tight sm:text-5xl">
-        Five steps from idea to arrangement.
+        A clear conversation before any arrangement.
       </h2>
       <div class="mt-12">
         <ProcessSteps steps={customOrderSteps} />
@@ -43,7 +43,16 @@ import Layout from "../layouts/Layout.astro";
       <p class="mt-6">
         Materials, colours, dimensions and design options are not assumed to be available for every style. They should only be treated as confirmed when discussed directly.
       </p>
+      <p class="mt-6">
+        Each listed style shows a Standard Price and a Made-to-Order Price separately. These are the current published prices for the two order routes, not a comparison of quality or a discount.
+      </p>
       <p class="mt-6 text-base leading-7 text-ink/65">{customOptions.notes}</p>
+      <a
+        href="/contact/"
+        class="mt-8 inline-flex min-h-12 items-center rounded-full bg-earth px-6 text-sm font-semibold text-cream transition-colors hover:bg-ochre focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+      >
+        Start a custom enquiry
+      </a>
     </div>
   </section>
 
@@ -54,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
       <div class="mt-10 max-w-3xl divide-y divide-earth/15 border-y border-earth/15">
         {faq.map((item) => (
           <details class="group py-5">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-left font-semibold marker:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 rounded-sm text-left font-semibold marker:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
               {item.question}
               <span aria-hidden="true" class="text-xl font-normal text-earth transition-transform group-open:rotate-45">+</span>
             </summary>

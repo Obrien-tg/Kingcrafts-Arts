@@ -24,7 +24,7 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
           Art, expressed through the hands.
         </h1>
         <p class="mt-8 max-w-xl text-lg leading-8 text-ink/75 sm:text-xl">
-          KING CRAFT ARTS is the handcrafted bag practice of {site.artist}. Explore the collection and begin a personal enquiry.
+          Handcrafted bag styles by {site.artist}. Explore the collection, then begin a personal enquiry when a style feels right.
         </p>
         <div class="mt-10 flex flex-wrap items-center gap-4">
           <a
@@ -34,7 +34,7 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
             Explore the Collection
           </a>
           {
-            whatsappUrl && (
+            whatsappUrl ? (
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -42,6 +42,13 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
                 class="inline-flex min-h-12 items-center rounded-full border border-earth/40 px-6 text-sm font-semibold text-earth transition-colors hover:border-ochre hover:bg-earth/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
                 Enquire on WhatsApp
+              </a>
+            ) : (
+              <a
+                href="/custom/"
+                class="inline-flex min-h-12 items-center rounded-full border border-earth/40 px-6 text-sm font-semibold text-earth transition-colors hover:border-ochre hover:bg-earth/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+              >
+                Explore custom orders
               </a>
             )
           }
@@ -98,12 +105,18 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
       <div>
         <h2 id="artist-title" class="sr-only">About the artist</h2>
         <p class="max-w-2xl text-2xl leading-tight text-ink sm:text-4xl">
-          {site.artist} began making bags to express his art through his hands.
+        {site.artist} makes bags to express art through his hands.
         </p>
         <p class="mt-6 max-w-xl leading-7 text-ink/70">
-          KING CRAFT ARTS is his brand: a place to discover the bag styles and start a direct conversation about an enquiry.
+          Learn about the practice, browse the styles and start a direct conversation when you are ready.
         </p>
       </div>
+      <a
+        href="/artist/"
+        class="w-fit rounded-full text-sm font-semibold text-earth underline decoration-gold/60 underline-offset-4 hover:text-ochre focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+      >
+        Meet the artist
+      </a>
     </div>
   </section>
 
@@ -121,12 +134,12 @@ const whatsappUrl = getWhatsAppUrl("Hello KING CRAFT ARTS, I would like to enqui
       <li>
         <span class="font-display text-3xl text-earth">02</span>
         <h3 class="mt-4 text-lg font-semibold">Enquire</h3>
-        <p class="mt-2 leading-7 text-ink/70">Send an enquiry about its current availability and the two listed order prices.</p>
+        <p class="mt-2 leading-7 text-ink/70">Ask about current availability, Standard Price and Made-to-Order Price before deciding.</p>
       </li>
       <li>
         <span class="font-display text-3xl text-earth">03</span>
         <h3 class="mt-4 text-lg font-semibold">Confirm</h3>
-        <p class="mt-2 leading-7 text-ink/70">Discuss the details directly with the artist before placing an order.</p>
+        <p class="mt-2 leading-7 text-ink/70">Discuss the details directly with the artist before making an arrangement.</p>
       </li>
     </ol>
   </section>

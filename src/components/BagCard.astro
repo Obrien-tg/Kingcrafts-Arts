@@ -42,9 +42,11 @@ const formatPrice = (price: number) =>
             class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div class="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
-            <span class="font-display text-4xl text-earth/50" aria-hidden="true">KCA</span>
-            <p class="text-sm font-medium uppercase tracking-[0.16em] text-earth">Product image pending</p>
+          <div class="relative flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
+            <div class="absolute inset-[18%] rounded-[45%_55%_50%_50%/55%_45%_55%_45%] border border-earth/25" aria-hidden="true"></div>
+            <span class="relative font-display text-4xl text-earth/60" aria-hidden="true">KCA</span>
+            <p class="relative text-sm font-semibold uppercase tracking-[0.16em] text-earth">Photograph to be added</p>
+            <p class="relative text-xs text-ink/60">Style details remain available below.</p>
           </div>
         )
       }
