@@ -3,7 +3,9 @@ title: "Big Satchel"
 description: "A KING CRAFT ARTS bag style available for custom inquiry. Product details will be confirmed with the artist."
 category: "satchel"
 availability: "unconfirmed"
-imageStatus: "pending"
+image: "../../assets/kingcraftsartwebsitematerials/Big-satchel.jpg"
+imageAlt: "KING CRAFT ARTS big satchel"
+imageStatus: "confirmed"
 publicationStatus: "published"
 standardPrice: 900
 madeToOrderPrice: 630

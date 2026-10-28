@@ -3,7 +3,9 @@ title: "Cooler Bag"
 description: "A KING CRAFT ARTS bag style available for custom inquiry. Product details will be confirmed with the artist."
 category: "cooler-bag"
 availability: "unconfirmed"
-imageStatus: "pending"
+image: "../../assets/kingcraftsartwebsitematerials/coooler-bag.jpg"
+imageAlt: "KING CRAFT ARTS cooler bag"
+imageStatus: "confirmed"
 publicationStatus: "published"
 standardPrice: 1500
 madeToOrderPrice: 1050

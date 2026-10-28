@@ -3,7 +3,9 @@ title: "Picnic Bag — Medium"
 description: "The medium Picnic Bag catalogue style from KING CRAFT ARTS, available for custom enquiry. Product details will be confirmed with the artist."
 category: "picnic-bag"
 availability: "unconfirmed"
-imageStatus: "pending"
+image: "../../assets/kingcraftsartwebsitematerials/picnic-bag2.jpg"
+imageAlt: "KING CRAFT ARTS medium picnic bag"
+imageStatus: "confirmed"
 publicationStatus: "published"
 standardPrice: 700
 madeToOrderPrice: 490

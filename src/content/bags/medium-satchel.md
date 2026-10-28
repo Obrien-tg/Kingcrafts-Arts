@@ -3,7 +3,9 @@ title: "Medium Satchel"
 description: "A KING CRAFT ARTS bag style available for custom inquiry. Product details will be confirmed with the artist."
 category: "satchel"
 availability: "unconfirmed"
-imageStatus: "pending"
+image: "../../assets/kingcraftsartwebsitematerials/Custom-make-medium-satchel.jpg"
+imageAlt: "KING CRAFT ARTS medium satchel"
+imageStatus: "confirmed"
 publicationStatus: "published"
 standardPrice: 700
 madeToOrderPrice: 490
